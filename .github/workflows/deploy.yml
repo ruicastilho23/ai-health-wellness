@@ -9,11 +9,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
-      - name: Create and Deploy to Netlify
+
+      - name: Create Netlify site (first run only)
+        id: create_site
         run: |
-          SITE_ID=$(netlify sites:create --name ai-health-wellness --account-slug ruicastilho-50 --json 2>/dev/null | jq -r '.id' || echo "${{ secrets.NETLIFY_SITE_ID }}")
+          RESULT=$(curl -s -X POST https://api.netlify.com/api/v1/sites \
+            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"ai-health-wellness","account_slug":"ruicastilho-50"}')
+          SITE_ID=$(echo $RESULT | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('id',''))" 2>/dev/null || echo "")
+          echo "site_id=$SITE_ID" >> $GITHUB_OUTPUT
+          echo "Created site: $SITE_ID"
+
+      - name: Deploy to Netlify
+        run: |
+          SITE_ID="${{ steps.create_site.outputs.site_id }}"
+          if [ -z "$SITE_ID" ]; then
+            SITE_ID="${{ secrets.NETLIFY_SITE_ID }}"
+          fi
+          echo "Deploying to site: $SITE_ID"
           netlify deploy --dir=. --prod --site=$SITE_ID --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
