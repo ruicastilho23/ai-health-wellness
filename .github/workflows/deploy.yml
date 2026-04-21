@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+env:
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,22 +16,27 @@ jobs:
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
-      - name: Create Netlify site (first run only)
-        id: create_site
+      - name: Create Netlify site and deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          RESULT=$(curl -s -X POST https://api.netlify.com/api/v1/sites \
-            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"ai-health-wellness","account_slug":"ruicastilho-50"}')
-          SITE_ID=$(echo $RESULT | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('id',''))" 2>/dev/null || echo "")
-          echo "site_id=$SITE_ID" >> $GITHUB_OUTPUT
-          echo "Created site: $SITE_ID"
-
-      - name: Deploy to Netlify
-        run: |
-          SITE_ID="${{ steps.create_site.outputs.site_id }}"
+          # Create site and capture site ID
+          SITE_INFO=$(netlify sites:create --name ai-health-wellness --account-slug ruicastilho-50 --json 2>&1 || true)
+          echo "Site creation output: $SITE_INFO"
+          
+          # Try to extract site ID from creation or list existing
+          SITE_ID=$(echo "$SITE_INFO" | python3 -c "import sys,json; data=sys.stdin.read(); d=json.loads(data); print(d.get('id',''))" 2>/dev/null || echo "")
+          
           if [ -z "$SITE_ID" ]; then
-            SITE_ID="${{ secrets.NETLIFY_SITE_ID }}"
+            # List sites and find ai-health-wellness
+            SITE_ID=$(netlify sites:list --json 2>/dev/null | python3 -c "import sys,json; sites=json.load(sys.stdin); [print(s['id']) for s in sites if s.get('name')=='ai-health-wellness']" 2>/dev/null | head -1 || echo "")
           fi
-          echo "Deploying to site: $SITE_ID"
-          netlify deploy --dir=. --prod --site=$SITE_ID --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
+          
+          echo "Using site ID: $SITE_ID"
+          
+          if [ -n "$SITE_ID" ]; then
+            netlify deploy --dir=. --prod --site=$SITE_ID
+          else
+            echo "ERROR: Could not find or create site"
+            exit 1
+          fi
