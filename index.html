@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Health & Wellness Hub</title>
+<title>AI Health &amp; Wellness Hub</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',sans-serif;background:#f8f9fa;color:#333}
@@ -23,13 +23,14 @@ nav a:hover{text-decoration:underline}
 .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:25px}
 .post-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08);transition:transform 0.2s,box-shadow 0.2s}
 .post-card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,0.12)}
+.post-card-img{width:100%;height:200px;object-fit:cover;display:block}
 .post-card-body{padding:20px}
 .post-tag{background:#e8f5e9;color:#2d8a4e;padding:3px 10px;border-radius:20px;font-size:0.8em;font-weight:600;display:inline-block;margin-bottom:10px}
 .post-card h3{font-size:1.1em;margin-bottom:10px;line-height:1.4}
 .post-card h3 a{color:#1a5c33;text-decoration:none}
 .post-card h3 a:hover{text-decoration:underline}
 .post-card p{color:#666;font-size:0.9em;line-height:1.6}
-.post-read-more{display:inline-block;margin-top:15px;color:#2d8a4e;font-weight:600;text-decoration:none;font-size:0.9em}
+.read-more{display:inline-block;margin-top:15px;color:#2d8a4e;font-weight:600;text-decoration:none;font-size:0.9em}
 .meal-plan-section{background:linear-gradient(135deg,#1a5c33,#2d8a4e);color:white;padding:50px 20px;text-align:center;margin:40px 0}
 .meal-plan-section h2{font-size:1.8em;margin-bottom:15px}
 .meal-plan-section p{font-size:1.05em;opacity:0.9;max-width:550px;margin:0 auto 25px}
@@ -43,7 +44,7 @@ footer a{color:#81c784;text-decoration:none}
 </head>
 <body>
 <header>
-<h1>AI Health & Wellness Hub</h1>
+<h1>AI Health &amp; Wellness Hub</h1>
 <p>Science-backed wellness powered by artificial intelligence</p>
 </header>
 <nav>
@@ -53,72 +54,83 @@ footer a{color:#81c784;text-decoration:none}
 <div class="hero">
 <h2>Transform Your Health with AI-Powered Insights</h2>
 <p>Discover personalized nutrition plans, fitness strategies, and wellness tips designed with cutting-edge AI technology.</p>
-<a href="#meal-plan" class="hero-btn">Get Your Free Meal Plan</a>
+<a href="free-7-day-ai-meal-plan.html" class="hero-btn">Get Your Free Meal Plan</a>
 </div>
 <div class="container">
 <h2 class="section-title">Latest Articles</h2>
 <div class="posts-grid">
+
 <div class="post-card">
+<img class="post-card-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80&auto=format&fit=crop" alt="AI Personalized Meal Plans - colorful healthy food" loading="lazy">
 <div class="post-card-body">
 <span class="post-tag">Nutrition</span>
 <h3><a href="how-ai-creates-personalized-meal-plans.html">How AI Creates Personalized Meal Plans That Actually Work</a></h3>
 <p>Discover how artificial intelligence analyzes your unique health data, preferences, and goals to create nutrition plans tailored specifically for you.</p>
-<a href="how-ai-creates-personalized-meal-plans.html" class="post-read-more">Read More &rarr;</a>
+<a href="how-ai-creates-personalized-meal-plans.html" class="read-more">Read More →</a>
 </div>
 </div>
+
 <div class="post-card">
+<img class="post-card-img" src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=800&q=80&auto=format&fit=crop" alt="AI Fitness Tracking - person with smartwatch working out" loading="lazy">
 <div class="post-card-body">
 <span class="post-tag">Fitness</span>
 <h3><a href="ai-powered-fitness-tracking.html">AI-Powered Fitness Tracking: The Future of Personal Training</a></h3>
 <p>Explore how AI fitness trackers monitor your performance, adapt your workout plans in real time, and help you reach your goals faster than ever.</p>
-<a href="ai-powered-fitness-tracking.html" class="post-read-more">Read More &rarr;</a>
+<a href="ai-powered-fitness-tracking.html" class="read-more">Read More →</a>
 </div>
 </div>
+
 <div class="post-card">
+<img class="post-card-img" src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=800&q=80&auto=format&fit=crop" alt="AI Sleep Optimization - peaceful sleeping person" loading="lazy">
 <div class="post-card-body">
 <span class="post-tag">Sleep</span>
 <h3><a href="ai-sleep-optimization.html">AI Sleep Optimization: How Smart Technology Transforms Rest</a></h3>
 <p>Learn how AI-powered sleep trackers analyze your sleep cycles and provide actionable recommendations to dramatically improve your sleep quality.</p>
-<a href="ai-sleep-optimization.html" class="post-read-more">Read More &rarr;</a>
+<a href="ai-sleep-optimization.html" class="read-more">Read More →</a>
 </div>
 </div>
+
 <div class="post-card">
+<img class="post-card-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80&auto=format&fit=crop" alt="AI Mental Health Tools - person meditating peacefully" loading="lazy">
 <div class="post-card-body">
 <span class="post-tag">Mental Health</span>
 <h3><a href="ai-mental-health-tools.html">AI Mental Health Tools: Your Digital Wellness Companion</a></h3>
 <p>Discover how AI-powered mental health apps offer personalized support, mood tracking, and evidence-based strategies to boost emotional wellbeing.</p>
-<a href="ai-mental-health-tools.html" class="post-read-more">Read More &rarr;</a>
+<a href="ai-mental-health-tools.html" class="read-more">Read More →</a>
 </div>
 </div>
+
 <div class="post-card">
+<img class="post-card-img" src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80&auto=format&fit=crop" alt="AI Weight Loss Strategies - person running outdoors" loading="lazy">
 <div class="post-card-body">
 <span class="post-tag">Weight Loss</span>
 <h3><a href="ai-weight-loss-strategies.html">AI Weight Loss Strategies: Smarter Ways to Shed Pounds</a></h3>
 <p>Explore how AI analyzes your metabolism, lifestyle, and habits to create a truly personalized weight loss strategy that delivers lasting results.</p>
-<a href="ai-weight-loss-strategies.html" class="post-read-more">Read More &rarr;</a>
+<a href="ai-weight-loss-strategies.html" class="read-more">Read More →</a>
 </div>
 </div>
+
 <div class="post-card">
+<img class="post-card-img" src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80&auto=format&fit=crop" alt="AI Stress Management - calm yoga meditation wellness" loading="lazy">
 <div class="post-card-body">
 <span class="post-tag">Stress</span>
 <h3><a href="ai-stress-management.html">AI Stress Management: Technology Meets Mindfulness</a></h3>
 <p>Find out how AI tools track your stress levels, suggest personalized mindfulness exercises, and help you build resilience against daily stressors.</p>
-<a href="ai-stress-management.html" class="post-read-more">Read More &rarr;</a>
+<a href="ai-stress-management.html" class="read-more">Read More →</a>
 </div>
 </div>
+
 </div>
 </div>
 <div class="meal-plan-section" id="meal-plan">
-<h2>Get Your FREE 7-Day AI Meal Plan</h2>
-<p>Enter your email and receive a personalized 7-day meal plan powered by AI — completely free.</p>
-<div class="ml-form-embed" data-account="10065049" data-form="6936426">
-<!-- MailerLite form will render here -->
-<script>var __ml={account:"10065049",form:"6936426"};(function(d,m){var o="ml-form-embed",s=d.createElement("script");s.type="text/javascript";s.async=true;s.src="https://groot.mailerlite.com/js/w/webforms.min.js?v3";var h=d.getElementsByTagName("head")[0];h.appendChild(s)})(document);</script>
+<h2>Get Your Free 7-Day AI Meal Plan</h2>
+<p>Let our AI create a personalized meal plan based on your goals, preferences, and dietary needs. Completely free!</p>
+<div class="ml-form-embed">
+<div class="ml-embedded" data-form="your-form-id"></div>
 </div>
 </div>
 <footer>
-<p>&copy; 2026 AI Health & Wellness Hub. All rights reserved.</p>
-<p style="margin-top:8px">Affiliate Disclosure: We may earn commissions from Amazon links at no extra cost to you.</p>
+<p>&copy; 2025 AI Health &amp; Wellness Hub. All rights reserved.</p>
 </footer>
 </body>
 </html>
