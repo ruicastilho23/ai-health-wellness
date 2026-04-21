@@ -1,0 +1,19 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Create and Deploy to Netlify
+        run: |
+          SITE_ID=$(netlify sites:create --name ai-health-wellness --account-slug ruicastilho-50 --json 2>/dev/null | jq -r '.id' || echo "${{ secrets.NETLIFY_SITE_ID }}")
+          netlify deploy --dir=. --prod --site=$SITE_ID --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
