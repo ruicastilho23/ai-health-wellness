@@ -1,56 +1,59 @@
-name: Upload Correct PDF
+name: Generate Meal Plan PDF
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'meal-plan-source.html'
 
 permissions:
   contents: write
 
 jobs:
-  upload:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download correct PDF with Python
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Puppeteer
         run: |
-          python3 - <<'EOF'
-          import urllib.request
-          import sys
+          npm install puppeteer
+
+      - name: Generate PDF from HTML file
+        run: |
+          node - <<'EOF'
+          const puppeteer = require('puppeteer');
+          const path = require('path');
+          const fs = require('fs');
           
-          url = "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/83633338/29769c6e-1b79-4d54-87d1-ebe5b13d1114/Your-FREE-7-Day-AI-Generated-Meal-Plan.pdf"
-          
-          headers = {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-              'Accept-Language': 'en-US,en;q=0.5',
-              'Connection': 'keep-alive',
-          }
-          
-          req = urllib.request.Request(url, headers=headers)
-          with urllib.request.urlopen(req) as response:
-              data = response.read()
-          
-          print(f"Downloaded {len(data)} bytes")
-          print(f"First 5 bytes: {data[:5]}")
-          
-          if data[:4] == b'%PDF':
-              print("Valid PDF detected")
-              with open('7day_mealplan.pdf', 'wb') as f:
-                  f.write(data)
-          else:
-              print("ERROR: Not a valid PDF")
-              print("Content preview:", data[:200])
-              sys.exit(1)
+          (async () => {
+            const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+            const page = await browser.newPage();
+            const htmlPath = path.resolve('meal-plan-source.html');
+            await page.goto('file://' + htmlPath, {waitUntil: 'networkidle0'});
+            await page.pdf({
+              path: '7day_mealplan.pdf',
+              format: 'A4',
+              printBackground: true,
+              margin: {top: '15mm', bottom: '15mm', left: '15mm', right: '15mm'}
+            });
+            await browser.close();
+            const stats = fs.statSync('7day_mealplan.pdf');
+            console.log('PDF size:', stats.size, 'bytes');
+          })();
           EOF
-          ls -la 7day_mealplan.pdf
 
       - name: Commit and push PDF
         run: |
           git config user.name "ruicastilho23"
           git config user.email "ruicastilho.50@gmail.com"
           git add 7day_mealplan.pdf
-          git diff --staged --quiet || git commit -m "Upload correct meal plan PDF v2"
+          git diff --staged --quiet || git commit -m "Generate meal plan PDF from HTML source"
           git push
