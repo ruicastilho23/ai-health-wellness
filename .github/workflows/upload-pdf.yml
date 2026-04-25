@@ -1,4 +1,4 @@
-name: Upload PDF to repo
+name: Generate PDF from HTML
 
 on:
   workflow_dispatch:
@@ -7,21 +7,37 @@ permissions:
   contents: write
 
 jobs:
-  upload:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Download PDF from URL
+
+      - name: Install dependencies
         run: |
-          curl -L -o "7day_mealplan.pdf" "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/83633338/d0cb5cb3-6f87-456b-a576-9fd72d25bcfe/Your-FREE-7-Day-AI-Generated-Meal-Plan.pdf"
-      
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+          npm install -g puppeteer-cli || true
+          pip install weasyprint 2>/dev/null || true
+
+      - name: Generate PDF using wkhtmltopdf
+        run: |
+          sudo apt-get install -y wkhtmltopdf
+          wkhtmltopdf --enable-local-file-access \
+            --page-size A4 \
+            --margin-top 10mm \
+            --margin-bottom 10mm \
+            --margin-left 10mm \
+            --margin-right 10mm \
+            https://ai-health-wellness.netlify.app/free-7-day-ai-meal-plan.html \
+            7day_mealplan.pdf
+          ls -la 7day_mealplan.pdf
+
       - name: Commit and push PDF
         run: |
-          git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add 7day_mealplan.pdf
-          git commit -m "Add 7-day meal plan PDF" || echo "No changes to commit"
+          git diff --staged --quiet || git commit -m "Regenerate PDF from HTML page"
           git push
