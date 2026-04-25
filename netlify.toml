@@ -1,2 +1,3 @@
 [build]
   publish = "."
+  # Updated to include PDF meal plan
