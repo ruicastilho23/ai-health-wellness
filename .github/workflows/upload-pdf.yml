@@ -1,0 +1,22 @@
+name: Upload PDF to repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Download PDF from URL
+        run: |
+          curl -L -o "7day_mealplan.pdf" "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/83633338/d0cb5cb3-6f87-456b-a576-9fd72d25bcfe/Your-FREE-7-Day-AI-Generated-Meal-Plan.pdf"
+      
+      - name: Commit and push PDF
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add 7day_mealplan.pdf
+          git commit -m "Add 7-day meal plan PDF"
+          git push
