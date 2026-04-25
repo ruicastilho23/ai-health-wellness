@@ -3,11 +3,16 @@ name: Upload PDF to repo
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Download PDF from URL
         run: |
@@ -15,8 +20,8 @@ jobs:
       
       - name: Commit and push PDF
         run: |
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           git add 7day_mealplan.pdf
-          git commit -m "Add 7-day meal plan PDF"
+          git commit -m "Add 7-day meal plan PDF" || echo "No changes to commit"
           git push
