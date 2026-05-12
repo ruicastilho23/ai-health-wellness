@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Health & Wellness Hub | Nutrition, Fitness, Mental Wellness & Sleep AI</title>
+  <meta name="description" content="AI-powered health insights for personalized nutrition, smart fitness, mental wellness, sleep optimization, tool comparisons, and a free 7-day AI meal plan.">
+  <meta name="keywords" content="AI health, AI nutrition, AI fitness, AI sleep optimization, mental wellness AI, AI meal plan">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.obrasileiro.info/">
+  <meta property="og:title" content="AI Health & Wellness Hub">
+  <meta property="og:description" content="Personalized nutrition, smart workouts, mental wellness, and sleep optimization powered by AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.obrasileiro.info/">
+  <meta property="og:image" content="https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg">
+  <link rel="stylesheet" href="style.css?v=49">
+  <script>window.p5 && (p5.disableFriendlyErrors = true);</script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AI Health & Wellness Hub",
+      "url": "https://www.obrasileiro.info/",
+      "description": "Your trusted source for AI-powered health insights: personalized nutrition, smart fitness, mental wellness, and sleep optimization.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AI Health & Wellness Hub",
+        "email": "aihealthwellnesshub@gmail.com"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="loading-screen" id="loading-screen" aria-hidden="true">
+    <div class="loader"></div>
+    <span>Calibrating your wellness dashboard</span>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="AI Health & Wellness Hub home">
+        <span class="brand-mark">
+          <img src="assets/logo-ai-health.png?v=3" alt="" aria-hidden="true">
+        </span>
+        <span>
+          <strong>AI Health & Wellness Hub</strong>
+          <small>Personalized health intelligence</small>
+        </span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#workflow">How It Works</a>
+        <a href="#pillars">4 Pillars</a>
+        <a href="#meal-plan">Sample Plan</a>
+        <a href="#articles">Articles</a>
+        <a class="nav-cta" href="#subscribe">Get Free Meal Generator</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="hero-bg" role="img" aria-label="AI health dashboard with nutrition, fitness and sleep data"></div>
+      <div class="p5-hero-canvas" id="p5-hero-canvas" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Evidence-backed AI wellness guidance</p>
+          <h1>Start Your AI Health Journey</h1>
+          <p class="hero-text">Your trusted source for AI-powered health insights: personalized nutrition, smart fitness, mental wellness, and sleep optimization.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#subscribe">Get Free Meal Generator</a>
+            <span class="hero-secondary-cue">
+              <a class="button ghost" href="#workflow">How It Works</a>
+            </span>
+          </div>
+          <div class="trust-row" aria-label="Site highlights">
+            <a href="#workflow">How it works</a>
+            <a href="#meal-plan">7-day sample plan</a>
+            <a href="#articles">Research-backed articles</a>
+          </div>
+        </div>
+        <aside class="hero-panel glass reveal" aria-label="Wellness metrics">
+          <div class="panel-header">
+            <span>Weekly AI Plan</span>
+            <strong>Live Preview</strong>
+          </div>
+          <div class="metric-ring">
+            <span class="counter" data-target="7">0</span>
+            <small>day reset</small>
+          </div>
+          <div class="mini-metrics">
+            <div><strong class="counter" data-target="150">0</strong><span>g protein avg.</span></div>
+            <div><strong class="counter" data-target="1900">0</strong><span>kcal target</span></div>
+            <div><strong class="counter" data-target="4">0</strong><span>health pillars</span></div>
+          </div>
+          <a class="button panel-button" href="#meal-plan">View sample plan</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section workflow" id="workflow" aria-labelledby="workflow-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="workflow-title">A cleaner path from insight to action</h2>
+          <p>Use the hub in three passes: understand the four wellness signals, review the sample meal plan, then subscribe to download the free generator.</p>
+        </div>
+        <div class="workflow-grid" aria-label="Recommended site workflow">
+          <article class="workflow-step glass reveal">
+            <span>01</span>
+            <h3>Choose your focus</h3>
+            <p>Start with nutrition, fitness, mental wellness, or sleep. Each pillar explains what AI can measure and where human judgment still matters.</p>
+            <a href="#pillars">Review the pillars</a>
+          </article>
+          <article class="workflow-step glass reveal">
+            <span>02</span>
+            <h3>Preview the sample</h3>
+            <p>Scan the preserved 7-day meal plan on the site so you know the structure before downloading the generator.</p>
+            <a href="#meal-plan">View sample plan</a>
+          </article>
+          <article class="workflow-step glass reveal">
+            <span>03</span>
+            <h3>Go deeper</h3>
+            <p>Subscribe to get the downloadable meal generator, then use the article library for tool comparisons and the full 7-day challenge.</p>
+            <a href="#subscribe">Get the generator</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pillars" id="pillars" aria-labelledby="pillars-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">4 Pillars</p>
+          <h2 id="pillars-title">Four pillars, one connected system</h2>
+          <p>AI is most useful when it helps you connect everyday signals: food choices, training load, stress patterns, and recovery.</p>
+        </div>
+        <div class="pillar-grid">
+          <article class="glass card reveal" id="nutrition">
+            <img src="https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg" alt="AI nutrition planning concept">
+            <div class="card-body">
+              <span class="tag">AI Nutrition</span>
+              <h3>Personalized Nutrition</h3>
+              <p>Meal plans tailored to your biology, goals, preferences, activity, and real-world eating patterns.</p>
+              <a href="articles/how-ai-is-revolutionizing-personal-nutrition.html">Read nutrition article</a>
+            </div>
+          </article>
+          <article class="glass card reveal" id="fitness">
+            <img src="https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_02_ai_fitness-1.jpg" alt="Smart workout with wearable data">
+            <div class="card-body">
+              <span class="tag">Fitness</span>
+              <h3>Smart Workouts</h3>
+              <p>Fitness plans optimized by AI algorithms that adapt around effort, recovery, and feedback.</p>
+              <a href="articles/ai-powered-fitness-smart-technology-workout.html">Read fitness article</a>
+            </div>
+          </article>
+          <article class="glass card reveal" id="mind">
+            <img src="https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_03_ai_mental_wellness-1.jpg" alt="Mental wellness app interface">
+            <div class="card-body">
+              <span class="tag">Mental Wellness</span>
+              <h3>Healthier Mind</h3>
+              <p>Beyond meditation apps: true personalization for stress patterns, check-ins, and reflection.</p>
+              <a href="articles/ai-and-mental-wellness-healthier-mind.html">Read mind article</a>
+            </div>
+          </article>
+          <article class="glass card reveal" id="sleep">
+            <img src="https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_04_ai_sleep-1.jpg" alt="AI sleep optimization data">
+            <div class="card-body">
+              <span class="tag">Sleep</span>
+              <h3>Sleep Optimization</h3>
+              <p>AI-powered recovery and sleep tracking to understand rest patterns and improve consistency.</p>
+              <a href="articles/science-of-ai-sleep-optimization.html">Read sleep article</a>
+            </div>
+          </article>
+        </div>
+        <div class="center-actions reveal">
+          <a class="button primary" href="#meal-plan">View the 7-day sample</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section meal-plan" id="meal-plan" aria-labelledby="meal-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Sample meal plan</p>
+          <h2 id="meal-title">7-Day AI Meal Plan Sample</h2>
+          <p>Use this as the on-site sample of the nutrition structure. Subscribe below to get the downloadable generator for a personalized version.</p>
+        </div>
+        <div class="meal-grid">
+          <article class="meal-card glass reveal">
+            <h3>Day 1: Energizing Start</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Greek Yogurt Bowl with blueberries, flaxseeds, and honey. <em>350 kcal | P:20g C:45g F:8g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Grilled Chicken Salad with avocado, cherry tomatoes, olive oil dressing. <em>520 kcal | P:42g C:18g F:32g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Almonds and apple slices. <em>180 kcal | P:6g C:22g F:9g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Baked Salmon with roasted asparagus and sweet potato. <em>550 kcal | P:45g C:40g F:22g</em></span></div>
+          </article>
+          <article class="meal-card glass reveal">
+            <h3>Day 2: Protein Power</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Scrambled eggs with spinach and whole-grain toast. <em>380 kcal | P:25g C:32g F:16g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Turkey and hummus wrap with mixed greens. <em>480 kcal | P:38g C:45g F:14g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Cottage cheese with berries. <em>160 kcal | P:18g C:12g F:4g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Beef stir-fry with broccoli, bell peppers, and brown rice. <em>600 kcal | P:48g C:50g F:20g</em></span></div>
+          </article>
+          <article class="meal-card glass reveal">
+            <h3>Day 3: Balanced Fuel</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Protein smoothie with whey, banana, spinach, and almond milk. <em>320 kcal | P:28g C:38g F:6g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Quinoa bowl with chickpeas, cucumber, feta, and lemon dressing. <em>510 kcal | P:22g C:62g F:18g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Two hard-boiled eggs. <em>140 kcal | P:12g C:2g F:10g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Grilled chicken thighs with roasted Brussels sprouts and quinoa. <em>580 kcal | P:46g C:42g F:22g</em></span></div>
+          </article>
+          <article class="meal-card glass reveal">
+            <h3>Day 4: Lean & Clean</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Overnight oats with chia, protein powder, and strawberries. <em>360 kcal | P:24g C:48g F:8g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Tuna salad with mixed greens, olive oil, and whole-grain crackers. <em>490 kcal | P:40g C:30g F:22g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Greek yogurt with walnuts. <em>200 kcal | P:15g C:10g F:12g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Baked cod with green beans and wild rice. <em>520 kcal | P:42g C:50g F:12g</em></span></div>
+          </article>
+          <article class="meal-card glass reveal">
+            <h3>Day 5: Recovery Day</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Avocado toast with poached eggs. <em>420 kcal | P:18g C:38g F:22g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Lentil soup with a side of whole-grain bread. <em>460 kcal | P:24g C:68g F:8g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Low-sugar protein bar. <em>190 kcal | P:20g C:18g F:6g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Grilled shrimp with zucchini noodles and marinara. <em>480 kcal | P:40g C:32g F:18g</em></span></div>
+          </article>
+          <article class="meal-card glass reveal">
+            <h3>Day 6: Variety Boost</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Protein pancakes with berries and maple syrup. <em>380 kcal | P:26g C:50g F:8g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Chicken Caesar salad with light dressing. <em>500 kcal | P:45g C:20g F:26g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Carrot sticks with hummus. <em>150 kcal | P:5g C:18g F:7g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Pork tenderloin with roasted root vegetables. <em>560 kcal | P:48g C:38g F:20g</em></span></div>
+          </article>
+          <article class="meal-card glass reveal">
+            <h3>Day 7: Finish Strong</h3>
+            <div class="meal-row"><strong>Breakfast</strong><span>Egg white omelet with mushrooms, peppers, and turkey bacon. <em>340 kcal | P:32g C:12g F:16g</em></span></div>
+            <div class="meal-row"><strong>Lunch</strong><span>Grilled salmon with kale salad and vinaigrette. <em>530 kcal | P:44g C:20g F:30g</em></span></div>
+            <div class="meal-row"><strong>Snack</strong><span>Rice cakes with almond butter. <em>180 kcal | P:6g C:20g F:9g</em></span></div>
+            <div class="meal-row"><strong>Dinner</strong><span>Baked chicken breast with sweet potato and steamed broccoli. <em>540 kcal | P:50g C:48g F:12g</em></span></div>
+          </article>
+        </div>
+        <div class="center-actions reveal">
+          <a class="button primary" href="assets/ai-health-7-day-meal-plan.pdf">Download printable version</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section articles" id="articles" aria-labelledby="articles-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Original articles preserved</p>
+          <h2 id="articles-title">AI health library</h2>
+          <p>Use these guides when you want the reasoning behind a pillar, a tool comparison, or the full 7-day challenge.</p>
+        </div>
+        <div class="article-grid">
+          <article class="article-card glass reveal">
+            <span>Start Here</span>
+            <h3>Welcome - Start Your AI Health Journey</h3>
+            <p>Research-backed insights, personalized nutrition, smart workouts, mental wellness, sleep optimization, and a clear path into the site.</p>
+            <a href="articles/welcome-start-your-ai-health-journey.html">Read Full Article</a>
+          </article>
+          <article class="article-card glass reveal">
+            <span>AI Nutrition</span>
+            <h3>How AI is Revolutionizing Personal Nutrition</h3>
+            <p>Your body is unique. Your meal plan should be too. AI replaces generic plans with data-aware guidance that fits real preferences.</p>
+            <div class="affiliate-links">
+              <strong>Amazon picks</strong>
+              <a href="https://www.amazon.com/dp/B09GWDQY5T?tag=aihealthwelln-20">Ninja Creami NC301 Ice Cream Maker</a>
+              <a href="https://www.amazon.com/dp/B0F32MQSS8?tag=aihealthwelln-20">7-Pack Meal Prep Containers</a>
+              <a href="https://www.amazon.com/dp/B0BZYCJK89?tag=aihealthwelln-20">Owala FreeSip Insulated Water Bottle</a>
+            </div>
+            <a href="articles/how-ai-is-revolutionizing-personal-nutrition.html">Read Full Article</a>
+          </article>
+          <article class="article-card glass reveal">
+            <span>AI Fitness</span>
+            <h3>AI-Powered Fitness: Smart Technology and Your Workout</h3>
+            <p>Adaptive workouts use feedback, effort, and recovery data so training plans become more personal over time.</p>
+            <div class="affiliate-links">
+              <strong>Amazon picks</strong>
+              <a href="https://www.amazon.com/dp/B0F38FCHD2?tag=aihealthwelln-20">Garmin vivoactive 6 GPS Smartwatch</a>
+              <a href="https://www.amazon.com/dp/B0DT3YMDMZ?tag=aihealthwelln-20">Amazfit Active 2 Smart Watch</a>
+              <a href="https://www.amazon.com/dp/B0FQFNRH72?tag=aihealthwelln-20">Apple Watch SE</a>
+            </div>
+            <a href="articles/ai-powered-fitness-smart-technology-workout.html">Read Full Article</a>
+          </article>
+          <article class="article-card glass reveal">
+            <span>Mental Wellness</span>
+            <h3>AI and Mental Wellness: Technology for a Healthier Mind</h3>
+            <p>AI wellness tools help identify stress patterns, support mood tracking, and recommend timely exercises.</p>
+            <div class="affiliate-links">
+              <strong>Amazon picks</strong>
+              <a href="https://www.amazon.com/dp/B0CHN2F11G?tag=aihealthwelln-20">Fitbit Charge 6 Fitness Tracker</a>
+              <a href="https://www.amazon.com/dp/B0C3JNJPZ7?tag=aihealthwelln-20">Withings Body Smart Scale</a>
+              <a href="https://www.amazon.com/dp/B08C7K77PS?tag=aihealthwelln-20">WIKDAY Resistance Bands Set</a>
+            </div>
+            <a href="articles/ai-and-mental-wellness-healthier-mind.html">Read Full Article</a>
+          </article>
+          <article class="article-card glass reveal">
+            <span>Sleep</span>
+            <h3>The Science of AI Sleep Optimization</h3>
+            <p>Sleep tools combine tracking, recovery signals, and routines so better rest becomes measurable and actionable.</p>
+            <div class="affiliate-links">
+              <strong>Amazon picks</strong>
+              <a href="https://www.amazon.com/dp/B0D9WWB3WX?tag=aihealthwelln-20">Oura Ring 4 Smart Ring</a>
+              <a href="https://www.amazon.com/dp/B09RQ812XS?tag=aihealthwelln-20">Yogasleep Dohm Nova Sound Machine</a>
+              <a href="https://www.amazon.com/dp/B074FFW5W4?tag=aihealthwelln-20">LectroFan Evo White Noise Machine</a>
+            </div>
+            <a href="articles/science-of-ai-sleep-optimization.html">Read Full Article</a>
+          </article>
+          <article class="article-card glass reveal">
+            <span>Tool Comparison</span>
+            <h3>Top AI Health Tools Compared</h3>
+            <p>A practical comparison for choosing the right AI health platform across nutrition, workouts, sleep, and mind support.</p>
+            <div class="affiliate-links">
+              <strong>Amazon picks</strong>
+              <a href="https://www.amazon.com/dp/B0CHN2F11G?tag=aihealthwelln-20">Fitbit Charge 6 Fitness Tracker</a>
+              <a href="https://www.amazon.com/dp/B0C3JNJPZ7?tag=aihealthwelln-20">Withings Body Smart Scale</a>
+              <a href="https://www.amazon.com/dp/B0D9WWB3WX?tag=aihealthwelln-20">Oura Ring 4 Smart Ring</a>
+            </div>
+            <a href="articles/top-ai-health-tools-compared.html">Read Full Article</a>
+          </article>
+          <article class="article-card glass reveal">
+            <span>7-Day Challenge</span>
+            <h3>Your 7-Day AI Health Kickstart Challenge</h3>
+            <p>One week, four pillars, and a practical plan to track nutrition, workouts, stress, sleep, and real-life wellness patterns.</p>
+            <div class="affiliate-links">
+              <strong>Amazon picks</strong>
+              <a href="https://www.amazon.com/dp/B0CHN2F11G?tag=aihealthwelln-20">Fitbit Charge 6 Fitness Tracker</a>
+              <a href="https://www.amazon.com/dp/B0C3JNJPZ7?tag=aihealthwelln-20">Withings Body Smart Scale</a>
+              <a href="https://www.amazon.com/dp/B08C7K77PS?tag=aihealthwelln-20">WIKDAY Resistance Bands Set</a>
+            </div>
+            <a href="articles/your-7-day-ai-health-kickstart-challenge.html">Read Full Article</a>
+          </article>
+        </div>
+        <p class="affiliate-disclosure reveal">Affiliate disclosure: as an Amazon Associate, AI Health & Wellness Hub may earn from qualifying purchases at no extra cost to you.</p>
+      </div>
+    </section>
+
+    <section class="section subscribe" id="subscribe" aria-labelledby="subscribe-title">
+      <div class="container subscribe-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Subscribe and download</p>
+          <h2 id="subscribe-title">Get the free 7-day AI meal generator</h2>
+          <p>The sample plan shows the structure. Subscribe to get the downloadable generator and build a version around your own goals, diet preference, and nutrition targets.</p>
+          <ul class="check-list">
+            <li>Personalized 7-day planning workflow</li>
+            <li>Goal, weight, and diet preference inputs</li>
+            <li>Estimated calories and protein targets</li>
+            <li>Sample meal structure included</li>
+          </ul>
+        </div>
+        <form class="subscribe-form glass reveal" id="subscribe-form">
+          <label for="firstName">First name</label>
+          <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Your first name">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="button primary submit-button" type="submit" id="submit-button">Send Me the Free AI Meal Generator</button>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <strong>AI Health & Wellness Hub</strong>
+        <p>Your trusted source for AI-powered health insights.</p>
+        <a href="mailto:aihealthwellnesshub@gmail.com">aihealthwellnesshub@gmail.com</a>
+      </div>
+      <div>
+        <strong>Site pages</strong>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="meal-plan.html">Free 7-Day AI Meal Plan</a>
+      </div>
+      <div>
+        <strong>Trust and legal</strong>
+        <a href="medical-disclaimer.html">Medical Disclaimer</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-subscribe floating-dark" href="#subscribe">Subscribe</a>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.min.js" defer></script>
+  <script src="p5-hero.js?v=3" defer></script>
+  <script src="app.js?v=18"></script>
+</body>
+</html>

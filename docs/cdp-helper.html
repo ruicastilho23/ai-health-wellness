@@ -1,0 +1,7 @@
+<!doctype html><html><body><script>
+(async()=>{
+  const tabs = await (await fetch('http://127.0.0.1:9223/json')).json();
+  const page = tabs.find(t => t.type === 'page');
+  document.body.textContent = JSON.stringify(page, null, 2);
+})();
+</script></body></html>
