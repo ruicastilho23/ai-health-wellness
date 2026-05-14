@@ -1,5 +1,5 @@
 (function () {
-  const measurementId = 'G-REPLACE-ME';
+  const measurementId = 'G-LJTE1SPWYB';
   const isConfigured = /^G-[A-Z0-9]+$/i.test(measurementId) && !measurementId.includes('REPLACE');
 
   window.dataLayer = window.dataLayer || [];
