@@ -1,0 +1,32 @@
+name: Site checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JavaScript
+        working-directory: site
+        run: |
+          node --check app.js
+          node --check p5-hero.js
+
+      - name: Verify health site URLs
+        shell: bash
+        run: |
+          if grep -R "obrasileiro.info" site netlify.toml; then
+            echo "Unexpected restaurant-site domain found in health site files."
+            exit 1
+          fi
+          grep -q "https://ai-health-wellness-hub.netlify.app/" site/sitemap.xml
+          grep -q "ai-meal-plan-men-over-50.html" site/sitemap.xml
+          grep -q "free-ai-wellness-plan.html" site/sitemap.xml
