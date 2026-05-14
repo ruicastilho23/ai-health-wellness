@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Free 7-Day AI Meal Plan | AI Health & Wellness Hub</title>
-  <meta name="description" content="Printable 7-day AI meal plan sample from AI Health & Wellness Hub.">
-  <link rel="stylesheet" href="style.css?v=41">
+  <title>Free 7-Day AI Meal Generator | AI Health & Wellness Hub</title>
+  <meta name="description" content="Use the free 7-day AI meal generator, then print or download a high-protein sample meal plan from AI Health & Wellness Hub.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ai-health-wellness-hub.netlify.app/meal-plan.html">
+  <meta property="og:title" content="Free 7-Day AI Meal Generator">
+  <meta property="og:description" content="Generate a 7-day meal plan around your weight, goal, and diet preference.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai-health-wellness-hub.netlify.app/meal-plan.html">
+  <meta property="og:image" content="https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg">
+  <link rel="stylesheet" href="style.css?v=70">
+  <script src="analytics.js?v=1" defer></script>
 </head>
 <body class="printable-page">
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="index.html#home" aria-label="AI Health & Wellness Hub home"><span class="brand-mark"><img src="assets/logo-ai-health.png?v=3" alt="" aria-hidden="true"></span><span><strong>AI Health & Wellness Hub</strong><small>Personalized health intelligence</small></span></a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
-      <div class="nav-menu" id="nav-menu"><a href="index.html#home">Home</a><a href="about.html">About</a><a href="index.html#articles">Articles</a><a href="index.html#pillars">4 Pillars</a><a class="nav-cta" href="index.html#subscribe">Get Free Meal Generator</a></div>
+      <div class="nav-menu" id="nav-menu"><a href="index.html#home">Home</a><a href="about.html">About</a><a href="index.html#articles">Articles</a><a href="index.html#pillars">4 Pillars</a><a class="nav-cta" href="#free-meal-generator">Get Free Meal Generator</a></div>
     </nav>
   </header>
 
@@ -21,13 +29,54 @@
       <section class="printable-hero glass">
         <p class="eyebrow">Printable sample</p>
         <h1>7-Day AI Meal Plan Sample</h1>
-        <p>Use this printable version as a structured sample. Subscribe on the main site to access the free meal generator and build a personalized version around your own goals.</p>
+        <p>Use this printable version as a structured sample, or open the free generator below to build a personalized version around your own goals.</p>
         <div class="static-actions print-hide">
           <a class="button primary" href="assets/ai-health-7-day-meal-plan.pdf">Download PDF</a>
           <button class="button ghost" type="button" onclick="window.print()">Print this page</button>
-          <a class="button ghost" href="index.html#meal-plan">Back to sample</a>
+          <a class="button ghost" href="#free-meal-generator">Use generator</a>
         </div>
         <p class="print-note">Educational sample only. Always adapt nutrition guidance with a qualified health professional when needed.</p>
+      </section>
+
+      <section class="meal-generator section" id="free-meal-generator" aria-labelledby="generator-title">
+        <div class="generator-shell">
+          <div class="section-heading">
+            <p class="eyebrow">Free tool</p>
+            <h2 id="generator-title">Generate a 7-day AI meal plan</h2>
+            <p>Enter your current weight, goal, and diet style to create a simple 7-day plan with estimated daily calories and protein. Use it as an educational starting point, then adjust with professional guidance when needed.</p>
+            <ul class="check-list">
+              <li>Built for fat loss, maintenance, or muscle gain</li>
+              <li>Includes balanced, high-protein, and vegetarian options</li>
+              <li>Creates a full week with breakfast, lunch, snack, and dinner</li>
+            </ul>
+          </div>
+          <form class="generator-form glass" id="meal-generator-form">
+            <label for="weight">Current weight</label>
+            <div class="input-row">
+              <input id="weight" name="weight" type="number" min="35" max="250" value="85" required>
+              <select id="unit" name="unit" aria-label="Weight unit">
+                <option value="kg">kg</option>
+                <option value="lb">lb</option>
+              </select>
+            </div>
+            <label for="goal">Primary goal</label>
+            <select id="goal" name="goal">
+              <option value="fat-loss">Fat loss</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="muscle">Muscle gain</option>
+            </select>
+            <label for="diet">Meal style</label>
+            <select id="diet" name="diet">
+              <option value="balanced">Balanced</option>
+              <option value="high-protein">High-protein</option>
+              <option value="vegetarian">Vegetarian</option>
+            </select>
+            <button class="button primary" type="submit">Generate My Free Meal Plan</button>
+            <p class="tool-note">No diagnosis or medical advice. Use this for general planning only.</p>
+          </form>
+        </div>
+        <div class="generator-summary glass" id="generator-summary" aria-live="polite"></div>
+        <div class="generated-plan" id="generated-plan"></div>
       </section>
 
       <section class="meal-grid" aria-label="7-day AI meal plan sample">
@@ -41,6 +90,6 @@
       </section>
     </div>
   </main>
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=19"></script>
 </body>
 </html>

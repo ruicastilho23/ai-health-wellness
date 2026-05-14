@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.obrasileiro.info/sitemap.xml
+Sitemap: https://ai-health-wellness-hub.netlify.app/sitemap.xml

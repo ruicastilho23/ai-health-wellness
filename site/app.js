@@ -9,6 +9,11 @@ const generatorSummary = document.getElementById('generator-summary');
 const generatedPlan = document.getElementById('generated-plan');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function trackEvent(name, parameters = {}) {
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', name, parameters);
+}
+
 const scrollProgress = document.createElement('div');
 scrollProgress.className = 'scroll-progress';
 scrollProgress.setAttribute('aria-hidden', 'true');
@@ -174,6 +179,9 @@ if (subscribeForm && submitButton && formMessage) {
       }
 
       formMessage.textContent = 'Success. Check your inbox for the meal generator.';
+      trackEvent('generate_lead', {
+        method: 'meal_generator_signup',
+      });
       subscribeForm.reset();
       setTimeout(() => {
         window.location.href = 'meal-plan.html';
@@ -239,6 +247,12 @@ function generateMealPlan(event) {
   const mealCalories = splitDailyTarget(dailyCalories);
   const mealProtein = splitDailyTarget(dailyProtein);
   const templates = mealTemplates[diet];
+
+  trackEvent('meal_plan_generated', {
+    goal,
+    diet,
+    unit,
+  });
 
   generatorSummary.classList.add('active', 'visible');
   generatorSummary.innerHTML = `

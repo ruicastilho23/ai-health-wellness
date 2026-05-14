@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Sora:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
 
 :root {
   color-scheme: dark;
@@ -1027,5 +1027,917 @@ a.row {
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Verdana Health design system adaptation for Health site 2. */
+:root {
+  color-scheme: light;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --soft: #475569;
+  --bg: #f8fafc;
+  --bg-2: #eef6f1;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --surface-soft: #ecfdf5;
+  --blue: #0ea5e9;
+  --cyan: #0ea5e9;
+  --green: #059669;
+  --green-2: #047857;
+  --button-blue: #0f172a;
+  --button-blue-2: #020617;
+  --rose: #ef4444;
+  --mint: #059669;
+  --warning: #eab308;
+  --error: #ef4444;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, .05);
+  --shadow: 0 4px 16px rgba(15, 23, 42, .07);
+  --shadow-md: 0 8px 32px rgba(15, 23, 42, .1);
+  --glow: 0 0 0 3px rgba(15, 23, 42, .08);
+  --radius: 8px;
+  --space-section: 72px;
+  --space-section-sm: 48px;
+}
+
+body {
+  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 34%, #eef6f1 100%);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+body::before {
+  background:
+    radial-gradient(68% 44% at 28% -8%, rgba(5, 150, 105, .14), transparent 62%),
+    radial-gradient(58% 38% at 90% 18%, rgba(14, 165, 233, .12), transparent 58%);
+  animation: none;
+}
+
+body::after {
+  opacity: .62;
+  background-image: linear-gradient(rgba(15, 23, 42, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, .025) 1px, transparent 1px);
+}
+
+.glass,
+.card,
+.article-card,
+.meal-card,
+.workflow-step,
+.step,
+.comparison,
+.subscribe-form,
+.generator-form,
+.generator-summary,
+.generated-day,
+.static-card,
+.article-hero,
+.article-body,
+.printable-hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  backdrop-filter: none;
+}
+
+.card::before,
+.article-card::before,
+.meal-card::before,
+.workflow-step::before,
+.step::before,
+.hero-panel::before,
+.comparison::before,
+.subscribe-form::before,
+.generator-form::before,
+.generated-day::before {
+  display: none;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, .9);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  min-height: 76px;
+}
+
+.brand-mark {
+  border-color: var(--border);
+  border-radius: 12px;
+  background: #f8fafc;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand strong,
+h1,
+h2,
+h3,
+.static-card h1,
+.static-card h2,
+.static-card h3,
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+.brand small,
+.nav-menu a,
+.hero-text,
+.section-heading p:not(.eyebrow),
+.card-body p,
+.article-card p,
+.meal-card p,
+.workflow-step p,
+.row,
+.step span,
+.meal-row em,
+.affiliate-disclosure,
+.footer p,
+.footer a,
+.static-card,
+.article-body,
+.article-hero p:last-child,
+.tool-note {
+  color: var(--muted);
+}
+
+.nav-menu a {
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: #f1f5f9;
+  color: var(--ink);
+  border-color: var(--border);
+  transform: none;
+}
+
+.nav-menu .nav-cta,
+.primary,
+.floating-subscribe,
+.floating-subscribe.floating-dark {
+  background: linear-gradient(135deg, #0f172a, #047857 54%, #0ea5e9);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, .14);
+}
+
+.hero {
+  min-height: 690px;
+  background:
+    linear-gradient(90deg, rgba(248, 250, 252, .96) 0%, rgba(248, 250, 252, .86) 48%, rgba(236, 253, 245, .72) 100%),
+    url("https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg") center/cover;
+}
+
+.hero-bg {
+  opacity: .1;
+  filter: saturate(.9) contrast(1);
+}
+
+.p5-hero-canvas {
+  opacity: .38;
+  mix-blend-mode: multiply;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .05em;
+}
+
+.eyebrow::before {
+  background: var(--green);
+  box-shadow: none;
+}
+
+h1 {
+  max-width: 720px;
+  font-size: clamp(42px, 6vw, 64px);
+  line-height: 1.08;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.18;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.button {
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.button::after {
+  display: none;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.ghost,
+.panel-button {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.trust-row a,
+.tag,
+.article-card span,
+.workflow-step span {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.hero-panel {
+  padding: 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-ring {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #f8fafc, #ecfdf5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+.metric-ring span {
+  color: var(--ink);
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  text-shadow: none;
+}
+
+.metric-ring small,
+.meal-row span,
+.static-card p,
+.static-card li,
+.article-body p,
+.article-body li,
+.printable-hero p {
+  color: var(--soft);
+}
+
+.mini-metrics div,
+.summary-stat,
+.affiliate-links {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.mini-metrics strong,
+.summary-stat strong {
+  color: var(--ink);
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.section-heading {
+  max-width: 760px;
+}
+
+.card:hover,
+.article-card:hover,
+.meal-card:hover,
+.workflow-step:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.card img {
+  opacity: 1;
+  filter: saturate(.92) contrast(1.02);
+}
+
+.card-body a,
+.article-card a,
+.workflow-step a,
+.static-card a,
+.article-body a,
+.back-link {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.card-body a:hover,
+.article-card a:hover,
+.workflow-step a:hover,
+.static-card a:hover,
+.article-body a:hover,
+.back-link:hover {
+  color: #047857;
+}
+
+.workflow-step span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: #ecfdf5;
+  letter-spacing: 0;
+}
+
+.meal-row {
+  border-top-color: #f1f5f9;
+}
+
+.meal-row strong {
+  color: var(--green);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.meal-row em,
+.summary-stat strong {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.generator-form label,
+.subscribe-form label {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.generator-form input,
+.generator-form select,
+.subscribe-form input {
+  min-height: 42px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--ink);
+  font: 500 14px/1.4 "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+.generator-form select option {
+  color: var(--ink);
+}
+
+.generator-form input:hover,
+.generator-form select:hover,
+.subscribe-form input:hover {
+  border-color: var(--ink);
+}
+
+.generator-form input:focus,
+.generator-form select:focus,
+.subscribe-form input:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, .09);
+  background: #ffffff;
+}
+
+.check-list {
+  color: var(--soft);
+}
+
+.check-list li::before,
+.form-message {
+  color: var(--green);
+}
+
+.form-message.error {
+  color: var(--error);
+}
+
+.footer {
+  background: #0f172a;
+  border-top: 0;
+}
+
+.footer,
+.footer strong {
+  color: #ffffff;
+}
+
+.footer p,
+.footer a {
+  color: #cbd5e1;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+.row.head {
+  color: var(--ink);
+  background: #f1f5f9;
+}
+
+.linked-row span:first-child {
+  color: var(--green);
+}
+
+.linked-row:hover {
+  color: var(--ink);
+  background: #f8fafc;
+}
+
+.step {
+  background: #ffffff;
+}
+
+.step strong {
+  color: var(--green);
+}
+
+.article-body blockquote {
+  border: 1px solid var(--border);
+  background: #f8fafc;
+}
+
+.article-hero img {
+  border-color: var(--border);
+  border-radius: var(--radius);
+}
+
+.loading-screen {
+  background: #f8fafc;
+  color: var(--muted);
+}
+
+.loader {
+  border-color: #e2e8f0;
+  border-top-color: var(--ink);
+  border-right-color: var(--green);
+  box-shadow: none;
+}
+
+.scroll-progress {
+  background: linear-gradient(90deg, #0f172a, #059669, #0ea5e9);
+  box-shadow: none;
+}
+
+@media (max-width: 940px) {
+  .nav-menu {
+    background: #ffffff;
+    border-color: var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(248, 250, 252, .98), rgba(236, 253, 245, .88)),
+      url("https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg") center/cover;
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+/* Dark Verdana Health correction. */
+:root {
+  color-scheme: dark;
+  --ink: #f8fafc;
+  --muted: #94a3b8;
+  --soft: #dbeafe;
+  --bg: #020617;
+  --bg-2: #0f172a;
+  --surface: rgba(15, 23, 42, .92);
+  --surface-strong: rgba(15, 23, 42, .97);
+  --surface-soft: rgba(5, 150, 105, .12);
+  --blue: #0ea5e9;
+  --cyan: #38bdf8;
+  --green: #059669;
+  --green-2: #047857;
+  --button-blue: #0ea5e9;
+  --button-blue-2: #0369a1;
+  --border: rgba(226, 232, 240, .16);
+  --border-strong: rgba(226, 232, 240, .3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .22);
+  --shadow: 0 8px 24px rgba(0, 0, 0, .3);
+  --shadow-md: 0 18px 48px rgba(0, 0, 0, .38);
+  --glow: 0 0 0 3px rgba(14, 165, 233, .18);
+}
+
+body {
+  background:
+    radial-gradient(80% 50% at 50% -16%, rgba(14, 165, 233, .18), transparent 62%),
+    radial-gradient(52% 42% at 92% 22%, rgba(5, 150, 105, .14), transparent 64%),
+    linear-gradient(180deg, #020617 0%, #07111f 38%, #0f172a 100%);
+  color: var(--ink);
+}
+
+body::before {
+  background:
+    radial-gradient(62% 40% at 18% 2%, rgba(5, 150, 105, .16), transparent 68%),
+    linear-gradient(180deg, rgba(14, 165, 233, .07), transparent 42%);
+}
+
+body::after {
+  opacity: .34;
+  background-image: linear-gradient(rgba(226, 232, 240, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(226, 232, 240, .035) 1px, transparent 1px);
+}
+
+.glass,
+.card,
+.article-card,
+.meal-card,
+.workflow-step,
+.step,
+.comparison,
+.subscribe-form,
+.generator-form,
+.generator-summary,
+.generated-day,
+.static-card,
+.article-hero,
+.article-body,
+.printable-hero {
+  background: linear-gradient(180deg, rgba(15, 23, 42, .96), rgba(8, 17, 31, .96));
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header {
+  background: rgba(2, 6, 23, .88);
+  border-bottom-color: var(--border);
+}
+
+.brand-mark {
+  background: #020617;
+  border-color: var(--border-strong);
+  box-shadow: 0 10px 28px rgba(5, 150, 105, .16);
+}
+
+.brand strong,
+h1,
+h2,
+h3,
+.static-card h1,
+.static-card h2,
+.static-card h3,
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  color: var(--ink);
+}
+
+.brand small,
+.nav-menu a,
+.hero-text,
+.section-heading p:not(.eyebrow),
+.card-body p,
+.article-card p,
+.meal-card p,
+.workflow-step p,
+.row,
+.step span,
+.meal-row em,
+.affiliate-disclosure,
+.static-card,
+.article-body,
+.article-hero p:last-child,
+.tool-note {
+  color: var(--muted);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: rgba(226, 232, 240, .08);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2, 6, 23, .94) 0%, rgba(15, 23, 42, .82) 52%, rgba(4, 120, 87, .38) 100%),
+    url("https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg") center/cover;
+}
+
+.hero-bg {
+  opacity: .22;
+  filter: saturate(1.02) contrast(1.08);
+}
+
+.p5-hero-canvas {
+  opacity: .46;
+  mix-blend-mode: screen;
+}
+
+.primary,
+.nav-menu .nav-cta,
+.floating-subscribe,
+.floating-subscribe.floating-dark {
+  background: linear-gradient(135deg, #064e3b, #059669 45%, #0ea5e9);
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(5, 150, 105, .26);
+}
+
+.ghost,
+.panel-button {
+  background: rgba(15, 23, 42, .62);
+  color: var(--ink);
+  border-color: var(--border-strong);
+}
+
+.trust-row a,
+.tag,
+.article-card span {
+  background: rgba(5, 150, 105, .12);
+  border-color: rgba(5, 150, 105, .28);
+  color: #6ee7b7;
+}
+
+.hero-panel {
+  background: linear-gradient(180deg, rgba(15, 23, 42, .97), rgba(7, 17, 32, .97));
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-ring {
+  background: linear-gradient(135deg, rgba(5, 150, 105, .16), rgba(14, 165, 233, .12));
+  border-color: var(--border-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.metric-ring span,
+.mini-metrics strong,
+.summary-stat strong {
+  color: var(--ink);
+}
+
+.metric-ring small,
+.meal-row span,
+.static-card p,
+.static-card li,
+.article-body p,
+.article-body li,
+.printable-hero p {
+  color: var(--soft);
+}
+
+.mini-metrics div,
+.summary-stat,
+.affiliate-links {
+  background: rgba(15, 23, 42, .72);
+  border-color: var(--border);
+}
+
+.card:hover,
+.article-card:hover,
+.meal-card:hover,
+.workflow-step:hover {
+  border-color: rgba(56, 189, 248, .34);
+  box-shadow: var(--shadow-md);
+}
+
+.card img {
+  filter: saturate(1.04) contrast(1.06);
+}
+
+.card-body a,
+.article-card a,
+.workflow-step a,
+.static-card a,
+.article-body a,
+.back-link {
+  color: #38bdf8;
+}
+
+.card-body a:hover,
+.article-card a:hover,
+.workflow-step a:hover,
+.static-card a:hover,
+.article-body a:hover,
+.back-link:hover {
+  color: #6ee7b7;
+}
+
+.workflow-step span {
+  background: rgba(5, 150, 105, .14);
+  border-color: rgba(5, 150, 105, .3);
+  color: #6ee7b7;
+}
+
+.meal-row {
+  border-top-color: rgba(226, 232, 240, .1);
+}
+
+.meal-row strong,
+.check-list li::before,
+.form-message {
+  color: #6ee7b7;
+}
+
+.generator-form label,
+.subscribe-form label {
+  color: var(--ink);
+}
+
+.generator-form input,
+.generator-form select,
+.subscribe-form input {
+  background: rgba(2, 6, 23, .7);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.generator-form select option {
+  color: #0f172a;
+}
+
+.generator-form input:hover,
+.generator-form select:hover,
+.subscribe-form input:hover,
+.generator-form input:focus,
+.generator-form select:focus,
+.subscribe-form input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, .15);
+  background: rgba(2, 6, 23, .86);
+}
+
+.row.head,
+.linked-row:hover,
+.step,
+.article-body blockquote {
+  background: rgba(15, 23, 42, .78);
+}
+
+.linked-row span:first-child,
+.step strong {
+  color: #6ee7b7;
+}
+
+.loading-screen,
+.footer {
+  background: #020617;
+}
+
+.loader {
+  border-color: rgba(226, 232, 240, .16);
+  border-top-color: #38bdf8;
+  border-right-color: #6ee7b7;
+}
+
+@media (max-width: 940px) {
+  .nav-menu {
+    background: rgba(2, 6, 23, .98);
+    border-color: var(--border);
+  }
+
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(2, 6, 23, .96), rgba(15, 23, 42, .9) 58%, rgba(4, 120, 87, .42)),
+      url("https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg") center/cover;
+  }
+}
+
+/* Version 4: site 2 foundation with site 3's first-screen hero. */
+.hero {
+  min-height: 720px;
+  padding-top: 84px;
+  background:
+    linear-gradient(90deg, rgba(2, 6, 23, .96), rgba(15, 23, 42, .82) 46%, rgba(4, 120, 87, .38)),
+    url("https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg") center/cover;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1.04fr) minmax(360px, .78fr);
+  gap: 72px;
+}
+
+.hero-panel {
+  padding: 26px;
+  align-self: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, .97), rgba(7, 17, 32, .97));
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.plan-brief {
+  padding: 18px 0 20px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.plan-brief p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.metric-ring,
+.mini-metrics {
+  display: none;
+}
+
+.plan-list {
+  display: grid;
+  margin: 18px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.plan-list div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 14px 16px;
+  background: rgba(226, 232, 240, .035);
+  border-bottom: 1px solid var(--border);
+}
+
+.plan-list div:last-child {
+  border-bottom: 0;
+}
+
+.plan-list span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.plan-list strong {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+@media (max-width: 940px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero {
+    padding-top: 42px;
+    background:
+      linear-gradient(180deg, rgba(2, 6, 23, .96), rgba(15, 23, 42, .9) 58%, rgba(4, 120, 87, .42)),
+      url("https://aihealthtracking.wordpress.com/wp-content/uploads/2026/04/article_01_ai_nutrition-2.jpg") center/cover;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-panel,
+  .hero-copy,
+  .hero-actions,
+  .trust-row,
+  .hero-text,
+  .hero-actions .button,
+  .center-actions .button,
+  .hero-secondary-cue {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-panel {
+    padding: 22px;
+  }
+
+  .plan-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }

@@ -4,17 +4,17 @@ Audit date: 2026-05-07
 
 ## Scope Checked
 
-- Live homepage: https://www.obrasileiro.info/
-- Meal plan page: https://www.obrasileiro.info/meal-plan
-- Subscribe page: https://www.obrasileiro.info/subscribe
-- Subscribe function: https://www.obrasileiro.info/.netlify/functions/subscribe
+- Live homepage: https://ai-health-wellness-hub.netlify.app/
+- Meal plan page: https://ai-health-wellness-hub.netlify.app/meal-plan
+- Subscribe page: https://ai-health-wellness-hub.netlify.app/subscribe
+- Subscribe function: https://ai-health-wellness-hub.netlify.app/.netlify/functions/subscribe
 - WordPress content hub: https://aihealthtracking.wordpress.com
 - WordPress public API site metadata and posts
 
 ## Functional Findings
 
 1. Homepage brand/content mismatch
-   - `www.obrasileiro.info` currently loads a Brazilian food/restaurant homepage.
+   - The old restaurant domain must not be used for this project.
    - The linked content hub and requested section structure are for "AI Health & Wellness Hub".
    - This is a major expectation mismatch for visitors and search engines.
 
@@ -34,7 +34,7 @@ Audit date: 2026-05-07
    - The page has loading/error/success states, but its visual style is inconsistent with the rest of the site.
 
 5. HTTP redirect works
-   - `http://www.obrasileiro.info` redirects to `https://www.obrasileiro.info/`.
+   - The health site canonical host is `https://ai-health-wellness-hub.netlify.app/`.
 
 6. Navigation mismatch
    - Current homepage navigation points to restaurant sections: Home, Menu, About, Gallery, Contact.
