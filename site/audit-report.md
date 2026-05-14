@@ -60,4 +60,23 @@ Audit date: 2026-05-15
 
 ## Publishing Status
 
-This report documents the pre-publishing audit and local fixes. Production should be verified again after pushing this audit batch to GitHub and after Netlify finishes the Git-based production deploy.
+GitHub and Netlify were updated after the fixes.
+
+- GitHub commit: `703c16c8cd892dd9d8e0ba85b4d07be661035849`
+- Netlify production deploy: `6a062706c3f0c10007d2d463`
+- Deploy state: `ready`
+- Production URL: `https://www.aihealthwellness.com/`
+
+## Post-Deploy Verification
+
+- Live crawl passed: 21 pages returned HTTP 200.
+- Live internal link check passed: no broken internal links.
+- Live asset check passed: no broken key assets.
+- Live SEO metadata gate passed: no missing title, description, canonical, robots, Open Graph URL, or Open Graph image tags.
+- Live sitemap and robots check passed.
+- Live subscribe endpoint returned HTTP 200 and the generator path.
+- Live browser generator check passed: the page generated the full 7-day plan through Day 7 with no console errors or warnings.
+- Live PDF check passed: `assets/ai-health-7-day-meal-plan.pdf` returned HTTP 200 with `application/pdf`.
+- Live external link check passed: 22 outbound links checked, with no broken links.
+
+Publishing verdict: ready to publish articles.
