@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-health-wellness-hub.netlify.app/sitemap.xml
+Sitemap: https://www.aihealthwellness.com/sitemap.xml

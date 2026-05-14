@@ -1,5 +1,21 @@
 # AGENTS.md
 
+## Source of Truth
+
+This `site/` folder is the active source for the live website:
+
+```text
+C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files\site
+```
+
+Do not use the old inactive copy:
+
+```text
+C:\Users\Lenovo_CT\Desktop\AI Health and Wellness App Project\site
+```
+
+Before editing or deploying, verify that the current path contains `Health & Welness Hub All Files`, not `AI Health and Wellness App Project`.
+
 Guidance for Codex or other coding agents working on this project.
 
 ## Project Summary

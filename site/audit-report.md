@@ -1,98 +1,69 @@
 # Site Audit Report
 
-Audit date: 2026-05-07
+Audit date: 2026-05-15
 
 ## Scope Checked
 
-- Live homepage: https://ai-health-wellness-hub.netlify.app/
-- Meal plan page: https://ai-health-wellness-hub.netlify.app/meal-plan
-- Subscribe page: https://ai-health-wellness-hub.netlify.app/subscribe
-- Subscribe function: https://ai-health-wellness-hub.netlify.app/.netlify/functions/subscribe
-- WordPress content hub: https://aihealthtracking.wordpress.com
-- WordPress public API site metadata and posts
+- Source folder: `C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files`
+- Netlify project: `ai-health-wellness-hub`
+- Netlify site ID: `725c4e64-fdd3-43c8-98fb-41d13f31b289`
+- Production domain: `https://www.aihealthwellness.com/`
+- Subscribe endpoint: `https://www.aihealthwellness.com/.netlify/functions/subscribe`
+- Generator destination: `https://www.aihealthwellness.com/meal-plan.html#free-meal-generator`
 
-## Functional Findings
+## Current Findings
 
-1. Homepage brand/content mismatch
-   - The old restaurant domain must not be used for this project.
-   - The linked content hub and requested section structure are for "AI Health & Wellness Hub".
-   - This is a major expectation mismatch for visitors and search engines.
+1. The live signup endpoint responds successfully.
+   - POST to the subscribe function returned HTTP 200.
+   - Response included `generatorPath: "/meal-plan.html#free-meal-generator"`.
 
-2. Homepage HTML has malformed metadata
-   - The Google verification meta tag is missing its closing `>`.
-   - Current snippet:
-     `<meta name="google-site-verification" content="A6kDBPErLChKOVUZSVLo7rZwYcNVtDfmisl-OujXmpo"`
-   - Browsers may recover, but crawlers can parse the rest of the head unpredictably.
+2. The live generator page loads and generates a plan.
+   - `meal-plan.html#free-meal-generator` returned HTTP 200.
+   - Browser test generated the full 7-day plan with summary targets and Day 7 output.
+   - No browser console errors were reported during the generator test.
 
-3. Subscribe endpoint is alive
-   - A POST with an empty body returned `400 Bad Request` with `{"error":"Valid email is required"}`.
-   - This is expected validation behavior and confirms the function responds.
+3. The live PDF file is available.
+   - `assets/ai-health-7-day-meal-plan.pdf` returned HTTP 200.
+   - Content type was `application/pdf`.
 
-4. Subscribe form behavior exists
-   - `/subscribe` posts to `/.netlify/functions/subscribe`.
-   - On success it redirects to `https://aihealthtracking.wordpress.com/your-free-7-day-ai-meal-plan-is-ready/`.
-   - The page has loading/error/success states, but its visual style is inconsistent with the rest of the site.
+4. Production still has stale domain metadata until the next deploy.
+   - Live HTML still contains `aihealthwellnes.com` in canonical, Open Graph, Twitter image, and schema URLs.
+   - Live `meal-plan.html` still has duplicate robots tags.
+   - Live PDF links do not yet include the `download` attribute.
 
-5. HTTP redirect works
-   - The health site canonical host is `https://ai-health-wellness-hub.netlify.app/`.
+## Local Fixes Applied
 
-6. Navigation mismatch
-   - Current homepage navigation points to restaurant sections: Home, Menu, About, Gallery, Contact.
-   - Requested content structure needs AI Nutrition, Fitness, Mental Wellness, Sleep, Tool Comparison, and 7-Day Challenge.
+1. Replaced stale typo-domain references in active source files.
+   - `aihealthwellnes.com` was replaced with `www.aihealthwellness.com` across public HTML, sitemap, robots, and audit references.
 
-## SEO Findings
+2. Cleaned the generator page robots metadata.
+   - `meal-plan.html` now keeps a single `noindex,follow` robots tag.
 
-1. Wrong homepage SEO intent
-   - The homepage title/description target Brazilian food in Koh Phangan, not AI health.
-   - This conflicts with the WordPress content hub and requested AI-health site.
+3. Made PDF buttons explicitly download.
+   - Homepage printable plan link now includes `download`.
+   - Generator page PDF link now includes `download`.
 
-2. Important subscribe page is `noindex`
-   - `/subscribe` includes `<meta name="robots" content="noindex">`.
-   - This is fine if the page is only a private lead-capture page, but it should not be the only discoverable conversion page.
+## Local Verification
 
-3. WordPress content contains schema pasted as visible HTML
-   - The welcome article displays JSON-LD-like schema as paragraph content.
-   - Schema should be emitted as `<script type="application/ld+json">`, not visible body text.
+- `node --check site\app.js`: passed.
+- `node --check site\p5-hero.js`: passed.
+- Local homepage returned HTTP 200 at `http://127.0.0.1:5173/index.html`.
+- Local generator page returned HTTP 200 at `http://127.0.0.1:5173/meal-plan.html`.
+- Local browser test generated the full 7-day meal plan with no console errors.
+- Local PDF returned HTTP 200 with `application/pdf`.
+- Audit check passed: no `aihealthwellnes.com` references remain in the active source.
+- Audit check passed: public HTML, robots, and sitemap use the custom domain.
 
-4. Split-domain authority
-   - Core pages live on WordPress, while the custom domain hosts the homepage, meal plan, and subscribe flow.
-   - This dilutes internal linking and creates brand/domain confusion.
+## Deployment Status
 
-5. Missing unified structured data
-   - The rebuilt site should include WebSite, Organization, Article, FAQ/HowTo where applicable, and health disclaimer markup if publishing medically adjacent content.
+Deployment was attempted through the Netlify connector command for site `725c4e64-fdd3-43c8-98fb-41d13f31b289`.
 
-6. Legal and trust pages exist in the WordPress hub
-   - Medical Disclaimer, Privacy Policy, Terms of Use, Affiliate Disclosure, Contact, and About are linked from the hub and should remain accessible.
+Result:
 
-## Preserved Content Inventory
+- Deployment did not complete.
+- Netlify MCP upload/build returned `500 Internal Server Error` twice.
+- Netlify CLI is not locally authenticated, so CLI production deploy could not be used as a fallback in this session.
 
-Published articles found:
+## Remaining Action
 
-- Welcome — Start Your AI Health Journey
-- How AI is Revolutionizing Personal Nutrition: From Generic Plans to Personalized Meals
-- AI-Powered Fitness: How Smart Technology is Transforming Your Workout
-- AI and Mental Wellness: Technology for a Healthier Mind
-- The Science of AI Sleep Optimization: Better Rest Through Technology
-- Top AI Health Tools Compared: Which One is Right for You?
-- Your 7-Day AI Health Kickstart Challenge
-
-Conversion/content pages found:
-
-- Free 7-Day AI Meal Plan
-- Meal plan download/print page
-- Subscribe form
-- Thank-you page
-- About, Contact, Medical Disclaimer, Privacy Policy, Terms of Use, Affiliate Disclosure
-
-## Recommended Fixes Before Publishing
-
-- Replace the restaurant homepage with the AI Health & Wellness Hub homepage or move restaurant content to a separate domain/subdirectory.
-- Fix malformed head metadata immediately.
-- Add canonical URLs and Open Graph/Twitter metadata.
-- Keep `/subscribe` noindex if desired, but add visible subscribe CTAs throughout indexable pages.
-- Move visible schema text into JSON-LD script tags.
-- Consolidate internal links under the preferred production domain.
-- Add a sitemap.xml and robots.txt that match the final domain strategy.
-- Add a medical disclaimer link in the footer and near AI-health recommendation sections.
-- Track subscribe CTA clicks and successful submissions.
-
+Deploy the active source folder to Netlify after the Netlify deploy uploader is available again or after local Netlify CLI/GitHub deployment access is authenticated.

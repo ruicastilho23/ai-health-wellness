@@ -1,5 +1,39 @@
 # AGENTS.md
 
+## Source of Truth
+
+This is the **active source-of-truth folder** for the live AI Health & Wellness Hub site:
+
+```text
+C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files
+```
+
+The old inactive copy is:
+
+```text
+C:\Users\Lenovo_CT\Desktop\AI Health and Wellness App Project
+```
+
+Never copy, deploy, or make site updates from the old inactive folder. Before editing or deploying, verify the current path with:
+
+```powershell
+Get-Location
+```
+
+The path must be exactly:
+
+```text
+C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files
+```
+
+For local preview, serve:
+
+```text
+C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files\site
+```
+
+For Netlify deployment, deploy from this folder only.
+
 Guidance for Codex or other coding agents working on this project.
 
 ## Project Summary
@@ -40,14 +74,14 @@ After changes:
 The static site root is `site/`, not the repository root. Start a local server from the `site` folder:
 
 ```powershell
-cd "C:\Users\Lenovo_CT\Desktop\AI Health and Wellness App Project\site"
+cd "C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files\site"
 python -m http.server 5173 --bind 127.0.0.1
 ```
 
 In Codex desktop, sandboxed background processes may be cleaned up when the shell exits. If the server does not persist, start it outside the sandbox:
 
 ```powershell
-cmd /c start "AI Health Local Server" /D "C:\Users\Lenovo_CT\Desktop\AI Health and Wellness App Project\site" /min python -m http.server 5173 --bind 127.0.0.1
+cmd /c start "AI Health Local Server" /D "C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files\site" /min python -m http.server 5173 --bind 127.0.0.1
 ```
 
 ## Deployment Notes

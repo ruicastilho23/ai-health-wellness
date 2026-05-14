@@ -27,6 +27,6 @@ jobs:
             echo "Unexpected restaurant-site domain found in health site files."
             exit 1
           fi
-          grep -q "https://ai-health-wellness-hub.netlify.app/" site/sitemap.xml
+          grep -q "https://www.aihealthwellness.com/" site/sitemap.xml
           grep -q "ai-meal-plan-men-over-50.html" site/sitemap.xml
           grep -q "free-ai-wellness-plan.html" site/sitemap.xml
