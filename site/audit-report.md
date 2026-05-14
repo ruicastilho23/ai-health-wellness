@@ -62,10 +62,11 @@ Audit date: 2026-05-15
 
 GitHub and Netlify were updated after the fixes.
 
-- GitHub commit: `703c16c8cd892dd9d8e0ba85b4d07be661035849`
-- Netlify production deploy: `6a062706c3f0c10007d2d463`
+- Audit fixes commit: `703c16c8cd892dd9d8e0ba85b4d07be661035849`
+- Verified content deploy: `6a062706c3f0c10007d2d463`
 - Deploy state: `ready`
 - Production URL: `https://www.aihealthwellness.com/`
+- Note: later documentation-only deploys may have a newer deploy ID without changing the audited site workflow.
 
 ## Post-Deploy Verification
 
