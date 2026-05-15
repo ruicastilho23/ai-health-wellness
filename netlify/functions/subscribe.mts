@@ -74,7 +74,10 @@ function getResendHeaders(apiKey: string, email: string) {
 
 async function sendWelcomeEmail(email: string, firstName: string) {
   const resendApiKey = getEnv("RESEND_API_KEY");
-  const from = getEnv("RESEND_FROM_EMAIL") || "AI Health & Wellness Hub <welcome@aihealthwellness.com>";
+  const from =
+    getEnv("RESEND_FROM_EMAIL") ||
+    getEnv("RESEND_FROM") ||
+    "AI Health & Wellness Hub <welcome@aihealthwellness.com>";
   const replyTo = getEnv("RESEND_REPLY_TO") || "aihealthwellnesshub@gmail.com";
 
   if (!resendApiKey) {

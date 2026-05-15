@@ -23,7 +23,7 @@ That meant the frontend could show `Success. Your generator is ready.` while no 
 ## Required Netlify Environment Variables
 
 - `RESEND_API_KEY`: required.
-- `RESEND_FROM_EMAIL`: recommended, for example `AI Health & Wellness Hub <welcome@aihealthwellness.com>`.
+- `RESEND_FROM_EMAIL` or existing `RESEND_FROM`: recommended, for example `AI Health & Wellness Hub <welcome@aihealthwellness.com>`.
 - `RESEND_REPLY_TO`: optional, defaults to `aihealthwellnesshub@gmail.com`.
 - `SITE_URL`: optional, defaults to `https://www.aihealthwellness.com`.
 - `SUBSCRIBE_WEBHOOK_URL`: optional, preserved for any external subscriber database or automation.
