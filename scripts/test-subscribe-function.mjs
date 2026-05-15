@@ -64,6 +64,7 @@ await test("sends welcome email through Resend before returning success", async 
   assert(response.body.emailProvider === "resend", "Expected resend provider in response");
   assert(response.body.emailId === "email_123", "Expected Resend email id in response");
   assert(calls[0].url === "https://api.resend.com/emails", "Expected Resend emails endpoint");
+  assert(!("Idempotency-Key" in calls[0].options.headers), "Expected no static Resend idempotency key");
   assert(sentPayload.to[0] === "newuser@example.com", "Expected normalized recipient email");
   assert(sentPayload.subject.includes("7-day AI meal generator"), "Expected welcome subject");
   assert(sentPayload.html.includes("Open the free meal generator"), "Expected generator CTA");

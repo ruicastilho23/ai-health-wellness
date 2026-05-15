@@ -64,11 +64,10 @@ function buildWelcomeEmail(firstName: string) {
   };
 }
 
-function getResendHeaders(apiKey: string, email: string) {
+function getResendHeaders(apiKey: string) {
   return {
     Authorization: `Bearer ${apiKey}`,
     "Content-Type": "application/json",
-    "Idempotency-Key": `welcome-${email.replace(/[^a-z0-9]/gi, "-").slice(0, 180)}`,
   };
 }
 
@@ -87,7 +86,7 @@ async function sendWelcomeEmail(email: string, firstName: string) {
   const emailContent = buildWelcomeEmail(firstName);
   const resendResponse = await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers: getResendHeaders(resendApiKey, email),
+    headers: getResendHeaders(resendApiKey),
     body: JSON.stringify({
       from,
       to: [email],
