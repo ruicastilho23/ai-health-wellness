@@ -55,5 +55,6 @@ finally {
 }
 
 node (Join-Path $expectedRoot "scripts\test-subscribe-function.mjs")
+node (Join-Path $expectedRoot "scripts\test-generator-access.mjs")
 
 Write-Host "Predeploy check passed for $expectedRoot"

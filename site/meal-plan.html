@@ -16,13 +16,21 @@
   <meta name="twitter:image" content="https://www.aihealthwellness.com/assets/ai-health-wellness-brand-social.png">
   <link rel="stylesheet" href="style.css?v=70">
   <script src="analytics.js?v=1" defer></script>
+  <script>
+    (function gateMealGeneratorAccess() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('access') !== 'welcome') {
+        window.location.replace('index.html#subscribe');
+      }
+    }());
+  </script>
 </head>
 <body class="printable-page">
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="index.html#home" aria-label="AI Health & Wellness Hub home"><span class="brand-mark"><img src="assets/logo-ai-health.png?v=3" alt="" aria-hidden="true"></span><span><strong>AI Health & Wellness Hub</strong><small>Personalized health intelligence</small></span></a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
-      <div class="nav-menu" id="nav-menu"><a href="index.html#home">Home</a><a href="about.html">About</a><a href="index.html#articles">Articles</a><a href="index.html#pillars">4 Pillars</a><a class="nav-cta" href="#free-meal-generator">Get Free Meal Generator</a></div>
+      <div class="nav-menu" id="nav-menu"><a href="index.html#home">Home</a><a href="about.html">About</a><a href="index.html#articles">Articles</a><a href="index.html#pillars">4 Pillars</a><a class="nav-cta" href="index.html#subscribe">Get Free Meal Generator</a></div>
     </nav>
   </header>
 
@@ -35,7 +43,7 @@
         <div class="static-actions print-hide">
           <a class="button primary" href="assets/ai-health-7-day-meal-plan.pdf" download>Download PDF</a>
           <button class="button ghost" type="button" onclick="window.print()">Print this page</button>
-          <a class="button ghost" href="#free-meal-generator">Use generator</a>
+          <a class="button ghost" href="index.html#subscribe">Get generator by email</a>
         </div>
         <p class="print-note">Educational sample only. Always adapt nutrition guidance with a qualified health professional when needed.</p>
       </section>

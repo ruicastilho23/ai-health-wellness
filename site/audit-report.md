@@ -4,7 +4,7 @@ Audit date: 2026-05-15
 
 ## Scope
 
-- Source folder: `C:\Users\Lenovo_CT\Desktop\Health & Welness Hub All Files`
+- Source folder: `C:\Users\Lenovo_CT\Desktop\AI Health Wellness Hub Master\live`
 - Production domain: `https://www.aihealthwellness.com/`
 - Netlify project: `ai-health-wellness-hub`
 - GitHub repo: `ruicastilho23/ai-health-wellness`
@@ -38,8 +38,8 @@ Audit date: 2026-05-15
 
 4. Generator and download workflow
    - Subscribe endpoint returns HTTP 200.
-   - Subscribe response includes `generatorPath: "/meal-plan.html#free-meal-generator"`.
-   - Generator page loads.
+   - Subscribe response includes email-only `generatorPath: "/meal-plan.html?access=welcome#free-meal-generator"`.
+   - Generator page redirects direct visitors back to the subscribe form unless opened from the welcome email link.
    - Generator creates a full 7-day plan with summary targets and Day 7 output.
    - PDF file returns HTTP 200 with `application/pdf`.
    - PDF buttons include the `download` attribute.

@@ -31,7 +31,7 @@ function escapeHtml(value: string) {
 function buildWelcomeEmail(firstName: string) {
   const safeFirstName = firstName ? escapeHtml(firstName) : "there";
   const siteUrl = (getEnv("SITE_URL") || "https://www.aihealthwellness.com").replace(/\/$/, "");
-  const generatorUrl = `${siteUrl}/meal-plan.html#free-meal-generator`;
+  const generatorUrl = `${siteUrl}/meal-plan.html?access=welcome#free-meal-generator`;
 
   return {
     subject: "Your free 7-day AI meal generator is ready",
@@ -170,8 +170,8 @@ export default async (req: Request) => {
 
   return jsonResponse({
     ok: true,
-    message: "Subscription received.",
-    generatorPath: "/meal-plan.html#free-meal-generator",
+    message: "Subscription received. Check your email for the generator link.",
+    generatorPath: "/meal-plan.html?access=welcome#free-meal-generator",
     emailProvider: "resend",
     emailId:
       typeof resendData === "object" && resendData !== null && "id" in resendData

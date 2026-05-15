@@ -67,6 +67,7 @@ await test("sends welcome email through Resend before returning success", async 
   assert(sentPayload.to[0] === "newuser@example.com", "Expected normalized recipient email");
   assert(sentPayload.subject.includes("7-day AI meal generator"), "Expected welcome subject");
   assert(sentPayload.html.includes("Open the free meal generator"), "Expected generator CTA");
+  assert(sentPayload.html.includes("access=welcome"), "Expected email-only generator access marker");
 });
 
 await test("fails honestly when Resend API key is missing", async () => {

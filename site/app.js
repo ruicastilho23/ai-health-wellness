@@ -178,14 +178,11 @@ if (subscribeForm && submitButton && formMessage) {
         throw new Error(data.error || 'Something went wrong. Please try again.');
       }
 
-      formMessage.textContent = 'Success. Your generator is ready.';
+      formMessage.textContent = 'Success. Check your email for the generator link.';
       trackEvent('generate_lead', {
         method: 'meal_generator_signup',
       });
       subscribeForm.reset();
-      setTimeout(() => {
-        window.location.href = data.generatorPath || 'meal-plan.html#free-meal-generator';
-      }, 1500);
     } catch (error) {
       formMessage.textContent = error.message || 'Connection error. Please try again.';
       formMessage.classList.add('error');
