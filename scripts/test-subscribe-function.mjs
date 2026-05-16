@@ -76,6 +76,9 @@ await test("creates a Resend subscriber before sending the welcome email", async
   assert(contactPayload.email === "newuser@example.com", "Expected normalized subscriber email");
   assert(contactPayload.firstName === "Rui", "Expected subscriber first name");
   assert(contactPayload.unsubscribed === false, "Expected contact to be subscribed");
+  assert(!("properties" in contactPayload), "Expected no custom contact properties that require Resend setup");
+  assert(!("segments" in contactPayload), "Expected no segment assignment without a verified segment id");
+  assert(!("topics" in contactPayload), "Expected no topic assignment without a verified topic id");
   assert(!("Idempotency-Key" in calls[1].options.headers), "Expected no static Resend idempotency key");
   assert(sentPayload.to[0] === "newuser@example.com", "Expected normalized recipient email");
   assert(sentPayload.subject.includes("7-day AI meal generator"), "Expected welcome subject");
@@ -127,6 +130,7 @@ await test("resubscribes an existing Resend contact before sending the welcome e
   assert(response.body.contactId === "contact_existing", "Expected updated contact id in response");
   assert(calls.length === 3, `Expected create, update, and email calls; got ${calls.length}`);
   assert(updatePayload.unsubscribed === false, "Expected existing contact to be resubscribed");
+  assert(!("properties" in updatePayload), "Expected no custom contact properties on update");
 });
 
 await test("fails honestly when Resend API key is missing", async () => {

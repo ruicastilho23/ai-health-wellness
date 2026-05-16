@@ -83,27 +83,13 @@ async function readResendJson(response: Response) {
 }
 
 function buildContactPayload(email: string, firstName: string) {
-  const segmentId = getEnv("RESEND_SEGMENT_ID");
-  const topicId = getEnv("RESEND_TOPIC_ID");
   const payload: Record<string, unknown> = {
     email,
     unsubscribed: false,
-    properties: {
-      source: "ai_health_meal_generator",
-      signup_path: "meal_plan",
-    },
   };
 
   if (firstName) {
     payload.firstName = firstName;
-  }
-
-  if (segmentId) {
-    payload.segments = [{ id: segmentId }];
-  }
-
-  if (topicId) {
-    payload.topics = [{ id: topicId, subscription: "opt_in" }];
   }
 
   return payload;
@@ -112,11 +98,6 @@ function buildContactPayload(email: string, firstName: string) {
 async function updateExistingContact(apiKey: string, email: string, firstName: string) {
   const payload: Record<string, unknown> = {
     unsubscribed: false,
-    properties: {
-      source: "ai_health_meal_generator",
-      signup_path: "meal_plan",
-      ...(firstName ? { first_name: firstName } : {}),
-    },
   };
 
   const resendResponse = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
