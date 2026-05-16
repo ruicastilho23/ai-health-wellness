@@ -71,6 +71,101 @@ function getResendHeaders(apiKey: string) {
   };
 }
 
+async function readResendJson(response: Response) {
+  const text = await response.text();
+  if (!text) return undefined;
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return undefined;
+  }
+}
+
+function buildContactPayload(email: string, firstName: string) {
+  const segmentId = getEnv("RESEND_SEGMENT_ID");
+  const topicId = getEnv("RESEND_TOPIC_ID");
+  const payload: Record<string, unknown> = {
+    email,
+    unsubscribed: false,
+    properties: {
+      source: "ai_health_meal_generator",
+      signup_path: "meal_plan",
+    },
+  };
+
+  if (firstName) {
+    payload.firstName = firstName;
+  }
+
+  if (segmentId) {
+    payload.segments = [{ id: segmentId }];
+  }
+
+  if (topicId) {
+    payload.topics = [{ id: topicId, subscription: "opt_in" }];
+  }
+
+  return payload;
+}
+
+async function updateExistingContact(apiKey: string, email: string, firstName: string) {
+  const payload: Record<string, unknown> = {
+    unsubscribed: false,
+    properties: {
+      source: "ai_health_meal_generator",
+      signup_path: "meal_plan",
+      ...(firstName ? { first_name: firstName } : {}),
+    },
+  };
+
+  const resendResponse = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
+    method: "PATCH",
+    headers: getResendHeaders(apiKey),
+    body: JSON.stringify(payload),
+  });
+
+  if (!resendResponse.ok) {
+    const details = await resendResponse.text();
+    console.error("Resend contact update failed", {
+      status: resendResponse.status,
+      details,
+    });
+    throw new Error("Resend contact update failed");
+  }
+
+  return readResendJson(resendResponse);
+}
+
+async function saveResendSubscriber(email: string, firstName: string) {
+  const resendApiKey = getEnv("RESEND_API_KEY");
+
+  if (!resendApiKey) {
+    throw new Error("Missing RESEND_API_KEY");
+  }
+
+  const resendResponse = await fetch("https://api.resend.com/contacts", {
+    method: "POST",
+    headers: getResendHeaders(resendApiKey),
+    body: JSON.stringify(buildContactPayload(email, firstName)),
+  });
+
+  if (resendResponse.status === 409) {
+    return updateExistingContact(resendApiKey, email, firstName);
+  }
+
+  if (!resendResponse.ok) {
+    const details = await resendResponse.text();
+    console.error("Resend contact creation failed", {
+      status: resendResponse.status,
+      details,
+    });
+    throw new Error("Resend contact creation failed");
+  }
+
+  return readResendJson(resendResponse);
+}
+
 async function sendWelcomeEmail(email: string, firstName: string) {
   const resendApiKey = getEnv("RESEND_API_KEY");
   const from =
@@ -135,7 +230,19 @@ export default async (req: Request) => {
 
   const webhookUrl = getEnv("SUBSCRIBE_WEBHOOK_URL");
 
+  let contactData: unknown;
   let resendData: unknown;
+
+  try {
+    contactData = await saveResendSubscriber(email, firstName);
+  } catch (error) {
+    console.error("Subscriber save failed", {
+      email,
+      error: error instanceof Error ? error.message : String(error),
+    });
+
+    return jsonResponse({ error: "Could not save subscription. Please try again." }, 502);
+  }
 
   try {
     resendData = await sendWelcomeEmail(email, firstName);
@@ -172,6 +279,10 @@ export default async (req: Request) => {
     message: "Subscription received. Check your email for the generator link.",
     generatorPath: "/meal-plan.html?access=welcome#free-meal-generator",
     emailProvider: "resend",
+    contactId:
+      typeof contactData === "object" && contactData !== null && "id" in contactData
+        ? (contactData as { id: unknown }).id
+        : undefined,
     emailId:
       typeof resendData === "object" && resendData !== null && "id" in resendData
         ? (resendData as { id: unknown }).id
