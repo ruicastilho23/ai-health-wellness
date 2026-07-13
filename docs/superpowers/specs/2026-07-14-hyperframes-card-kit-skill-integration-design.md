@@ -29,7 +29,7 @@ Route every card scene through this package:
 | Comparison | `code-diff` or a composition derived directly from its row system |
 | Source/citation | Package-styled technical card using the same tokens and motion grammar |
 | Statistic/key figure | Package-styled technical card; use the official catalog `data-chart` when the scene is a chart rather than a card |
-| Presenter-adjacent card | Package-styled side-panel card coordinated with Dr. Ava Chen footage |
+| Presenter-adjacent card | Package-styled overlay placed in negative space within Dr. Ava Chen's full-frame 16:9 panoramic studio shot; never crop her into a side panel |
 
 Adapt only topic data, wording, duration, layout density, and approved brand accents. Preserve the package's structure, visual tokens, and authored motion language. Do not substitute generic glass cards, hand-rolled HUDs, static text boxes, or unrelated catalog cards.
 

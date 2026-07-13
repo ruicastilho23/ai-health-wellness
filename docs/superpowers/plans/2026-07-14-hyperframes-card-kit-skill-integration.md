@@ -8,6 +8,8 @@
 
 **Tech Stack:** Markdown skill contracts, Python 3 `unittest`, JSON/CSV manifests, HyperFrames CLI, SHA-256 file comparison, PowerShell deployment.
 
+**Execution decision:** Inline execution selected. **Status:** Paused at the user's request; do not begin implementation until the user explicitly asks to resume.
+
 ---
 
 ## File Map
@@ -261,7 +263,7 @@ Compare relative paths and SHA-256 hashes for every file, excluding transient `_
 
 - [ ] **Step 1: Run the baseline presenter-adjacent scenario**
 
-Ask a fresh worker to plan `AVA-02` and `AVA-03` side-panel cards from the current avatar skill. Record whether it independently requires the local motion-card kit and its proof artifacts.
+Ask a fresh worker to plan presenter-adjacent cards for the full-frame panoramic `AVA-02` and `AVA-03` scenes from the current avatar skill. Record whether it independently requires the local motion-card kit and preserves the native 16:9 presenter composition.
 
 - [ ] **Step 2: Write and run the failing static contract test**
 
@@ -269,7 +271,7 @@ Use the Task 1 test structure, replace the launcher/contract filenames, and add 
 
 - [ ] **Step 3: Add the standalone contract and workflow rules**
 
-Copy the validated no-avatar card contract and add the avatar-specific rule: both middle appearances use package-styled presenter-adjacent cards; full-frame opening and closing remain unaffected. Add mandatory reading, preflight copy, style proof, assembly, final verification, red-flag, and delivery evidence rules.
+Copy the validated no-avatar card contract and add the avatar-specific rule: both middle appearances use package-styled presenter-adjacent overlays in the negative space of native full-frame 16:9 panoramic shots. Never shrink, crop, mask, or push Ava into a side panel. Add mandatory reading, preflight copy, style proof, assembly, final verification, red-flag, and delivery evidence rules.
 
 - [ ] **Step 4: Update the avatar contract and launcher**
 
