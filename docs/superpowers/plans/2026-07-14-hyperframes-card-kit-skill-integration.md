@@ -8,7 +8,9 @@
 
 **Tech Stack:** Markdown skill contracts, Python 3 `unittest`, JSON/CSV manifests, HyperFrames CLI, SHA-256 file comparison, PowerShell deployment.
 
-**Execution decision:** Inline execution selected. **Status:** Paused at the user's request; do not begin implementation until the user explicitly asks to resume.
+**Execution decision:** Inline execution selected. **Status:** Completed on 2026-07-14 after the user explicitly resumed implementation. Both Codex skills and both Hermes copies contain the mandatory motion-card contract; the avatar skill also enforces native full-frame panoramic 16:9 framing for all four Dr. Ava Chen appearances.
+
+**Verification result:** Codex and Hermes each passed 16 no-avatar tests and 13 avatar tests. All four skill folders passed `quick_validate.py`. Recursive SHA-256 comparison, excluding transient Python cache files, found zero missing, extra, or mismatched files between each Codex source and its Hermes copy.
 
 ---
 
